@@ -39,10 +39,17 @@ class OLSLinearRegressor:
 
 if __name__ == "__main__":
     from sklearn.datasets import make_regression
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--n_samples", default=5_000)
+    parser.add_argument("--n_features", default=5)
+
+    args = parser.parse_args()
 
     X, y, coef = make_regression(
-        n_samples=500,
-        n_features=5, 
+        n_samples=args.n_samples,
+        n_features=args.n_features, 
         coef=True
     )
 
